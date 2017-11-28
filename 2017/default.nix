@@ -1,9 +1,10 @@
 let
   fetch    = (import <nixpkgs> {}).fetchFromGitHub;
+  versions = builtins.fromJSON (builtins.readFile ./versions.json);
   # ./updater versions.json ihaskell
-  IHaskell = fetch (builtins.fromJSON (builtins.readFile ./versions.json)).ihaskell;
+  IHaskell = fetch versions.ihaskell;
   # ./updater versions.json nixpkgs nixos-17.09
-  pinned   = fetch (builtins.fromJSON (builtins.readFile ./versions.json)).nixpkgs;
+  pinned   = fetch versions.nixpkgs;
   nixpkgs  = import pinned {};
 in import "${IHaskell}/release.nix" {
   inherit nixpkgs;

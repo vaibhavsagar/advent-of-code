@@ -15,6 +15,7 @@ in import "${IHaskell}/release.nix" {
     directory
     filepath
     my-lib
+    split
     utf8-string
   ];
 }

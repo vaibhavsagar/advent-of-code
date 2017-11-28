@@ -13,6 +13,7 @@ in import "${IHaskell}/release.nix" {
     containers
     directory
     filepath
+    lens
     (nixpkgs.haskell.lib.dontHaddock (nixpkgs.haskellPackages.callCabal2nix "lib" ./lib {}))
     split
     utf8-string

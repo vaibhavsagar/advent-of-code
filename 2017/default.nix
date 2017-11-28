@@ -18,5 +18,6 @@ in import "${IHaskell}/release.nix" {
     (nixpkgs.haskell.lib.dontHaddock (nixpkgs.haskellPackages.callCabal2nix "lib" ./lib {}))
     split
     utf8-string
+    vector
   ];
 }

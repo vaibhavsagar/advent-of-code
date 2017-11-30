@@ -17,6 +17,7 @@ in import "${versions.ihaskell}/release.nix" {
     lens
     (nixpkgs.haskell.lib.dontHaddock (nixpkgs.haskellPackages.callCabal2nix "lib" ./lib {}))
     split
+    unordered-containers
     utf8-string
     vector
   ];

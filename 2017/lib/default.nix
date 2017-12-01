@@ -6,6 +6,6 @@ let
     (_: fetchFromGitHub)
     (builtins.fromJSON (builtins.readFile ../versions.json));
   nixpkgs  = import versions.nixpkgs {};
-  drv = (nixpkgs.haskell.lib.dontHaddock (nixpkgs.haskellPackages.callCabal2nix "lib" ./. {}));
+  drv = nixpkgs.haskellPackages.callCabal2nix "lib" ./. {};
 in
   if lib.inNixShell then drv.env else drv

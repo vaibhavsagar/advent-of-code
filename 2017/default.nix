@@ -15,10 +15,9 @@ in import "${versions.ihaskell}/release.nix" {
     directory
     filepath
     lens
-    (import ./lib)
     split
     unordered-containers
     utf8-string
     vector
-  ];
+  ] ++ lib.singleton (import ./lib);
 }

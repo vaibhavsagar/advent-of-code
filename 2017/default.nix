@@ -15,7 +15,7 @@ in import "${versions.ihaskell}/release.nix" {
     directory
     filepath
     lens
-    (nixpkgs.haskell.lib.dontHaddock (nixpkgs.haskellPackages.callCabal2nix "lib" ./lib {}))
+    (import ./lib)
     split
     unordered-containers
     utf8-string

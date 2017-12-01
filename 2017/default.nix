@@ -6,12 +6,7 @@ let
     (_: fetchFromGitHub)
     (builtins.fromJSON (builtins.readFile ./versions.json));
   nixpkgs  = import versions.nixpkgs {};
-  ihaskell = nixpkgs.runCommand "ihaskell" {} ''
-    mkdir -p $out
-    cp -r ${versions.ihaskell}/* $out
-    ${nixpkgs.gnused}/bin/sed -i "s/ghcWithPackages/ghcWithHoogle/" $out/release.nix
-  '';
-in import "${ihaskell}/release.nix" {
+in import "${versions.ihaskell}/release.nix" {
   inherit nixpkgs;
   packages = self: with self; [
     attoparsec

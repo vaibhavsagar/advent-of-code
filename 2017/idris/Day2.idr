@@ -8,9 +8,7 @@ part1 xs = sum $ map (\l => foldr max 0 l - foldr min 1000000 l) xs
 
 evenDivs : List Int -> List Int
 evenDivs ls = do
-  tls <- tails ls
-  guard $ tail' tls /= Nothing
-  let (x :: xs) = tls
+  (x :: xs) <- filter (\t => t /= []) $ tails ls
   y <- xs
   let (x',y') = if x > y then (x,y) else (y,x)
   guard $ (x' `mod` y') == 0

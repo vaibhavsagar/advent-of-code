@@ -1,12 +1,12 @@
 module Main
 
-parseInput : String -> List (List Nat)
+parseInput : String -> List (List Int)
 parseInput str = map (map cast) $ map words $ lines str
 
-part1 : List (List Nat) -> Nat
-part1 xs = sum $ map (\l => foldr maximum 0 l `minus` foldr minimum 1000000 l) xs
+part1 : List (List Int) -> Int
+part1 xs = sum $ map (\l => foldr max 0 l - foldr min 1000000 l) xs
 
-evenDivs : List Nat -> List Nat
+evenDivs : List Int -> List Int
 evenDivs ls = do
   tls <- tails ls
   guard $ tail' tls /= Nothing
@@ -16,7 +16,7 @@ evenDivs ls = do
   guard $ (x' `mod` y') == 0
   pure (x' `div` y')
 
-part2 : List (List Nat) -> Nat
+part2 : List (List Int) -> Int
 part2 xs = sum $ concat $ map evenDivs xs
 
 main : IO ()

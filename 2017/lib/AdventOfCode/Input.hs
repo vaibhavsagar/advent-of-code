@@ -19,3 +19,6 @@ dayLines = fmap B.lines . day
 
 dayLinesString :: Int -> IO [String]
 dayLinesString = fmap (map BU.toString) . dayLines
+
+readInt :: String -> Int
+readInt = read

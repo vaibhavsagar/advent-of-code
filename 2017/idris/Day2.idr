@@ -6,8 +6,8 @@ parseInput str = map ((map cast) . words) $ lines str
 part1 : List (List Int) -> Int
 part1 xs = sum $ map (\l => foldr max 0 l - foldr min 1000000 l) xs
 
-evenDivs : List Int -> List Int
-evenDivs ls =
+evenDivs : List Int -> Maybe Int
+evenDivs ls = head' $
   [ x' `div` y'
   | (x :: xs) <- filter isCons $ tails ls
   , y <- xs
@@ -16,7 +16,7 @@ evenDivs ls =
   ]
 
 part2 : List (List Int) -> Int
-part2 = sum . concatMap evenDivs
+part2 = sum . catMaybes . map evenDivs
 
 main : IO ()
 main = do

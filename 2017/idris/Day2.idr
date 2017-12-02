@@ -7,12 +7,13 @@ part1 : List (List Int) -> Int
 part1 xs = sum $ map (\l => foldr max 0 l - foldr min 1000000 l) xs
 
 evenDivs : List Int -> List Int
-evenDivs ls = do
-  (x :: xs) <- filter (\t => t /= []) $ tails ls
-  y <- xs
-  let (x',y') = if x > y then (x,y) else (y,x)
-  guard $ (x' `mod` y') == 0
-  pure (x' `div` y')
+evenDivs ls =
+  [ x' `div` y'
+  | (x :: xs) <- filter isCons $ tails ls
+  , y <- xs
+  , let (x',y') = if x > y then (x,y) else (y,x)
+  , (x' `mod` y') == 0
+  ]
 
 part2 : List (List Int) -> Int
 part2 = sum . concatMap evenDivs

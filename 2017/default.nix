@@ -15,6 +15,7 @@ in import "${versions.ihaskell}/release.nix" {
     directory
     filepath
     lens
+    memoize
     split
     unordered-containers
     utf8-string

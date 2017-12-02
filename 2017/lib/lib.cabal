@@ -16,7 +16,9 @@ extra-source-files:  ChangeLog.md
 cabal-version:       >=1.10
 
 library
-  exposed-modules:        AdventOfCode.Input
+  exposed-modules:     AdventOfCode
+                       AdventOfCode.Input
+                       AdventOfCode.Helpers
   -- other-modules:       
   -- other-extensions:    
   build-depends:       base >=4.9 && <4.10

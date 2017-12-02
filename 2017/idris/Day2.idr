@@ -15,7 +15,7 @@ evenDivs ls = do
   pure (x' `div` y')
 
 part2 : List (List Int) -> Int
-part2 xs = sum $ concatMap evenDivs xs
+part2 = sum . concatMap evenDivs
 
 main : IO ()
 main = do

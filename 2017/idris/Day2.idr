@@ -1,7 +1,7 @@
 module Main
 
 parseInput : String -> List (List Int)
-parseInput str = map ((map cast) . words) $ lines str
+parseInput str = map (map cast . words) $ lines str
 
 part1 : List (List Int) -> Int
 part1 xs = sum $ map (\l => foldr max 0 l - foldr min 1000000 l) xs

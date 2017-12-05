@@ -1,3 +1,5 @@
+import Data.SortedMap
+
 parseInput : String -> Nat
 parseInput s = cast s
 
@@ -58,12 +60,31 @@ part1 x = let
   (x,y) = getPos x
   in (abs x) + (abs y)
 
+neighbours : (Int, Int) -> List (Int, Int)
+neighbours (x, y) =
+  [ (x-1, y-1), (x, y-1), (x+1, y-1)
+  , (x-1, y),             (x+1, y)
+  , (x-1, y+1), (x, y+1), (x+1, y+1)
+  ]
+
+
+sumNeighbours : SortedMap (Int, Int) Nat -> (Int, Int) -> Nat
+sumNeighbours g c = sum $ map (\c' => fromMaybe 0 (lookup c' g)) $ neighbours c
+
+loop : SortedMap (Int, Int) Nat -> Nat -> Nat -> Nat
+loop gr i stop = let
+    coord = getPos i
+    value = sumNeighbours gr coord
+    in if value > stop
+        then value
+        else loop (insert coord value gr) (i+1) stop
+
 part2 : Nat -> Nat
-part2 x = ?part2_rhs
+part2 x = loop (fromList [((0,0), 1)]) 2 x
 
 main : IO ()
 main = do
   (Right input) <- readFile "../input/day3.txt"
   let parsed = parseInput input
   printLn $ part1 parsed
-  -- printLn $ part2 parsed
+  printLn $ part2 parsed

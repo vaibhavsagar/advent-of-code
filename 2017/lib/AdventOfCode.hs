@@ -1,7 +1,5 @@
-module AdventOfCode
-    ( module AdventOfCode.Input
-    , module AdventOfCode.Helpers
-    ) where
+module AdventOfCode (module Exported) where
 
-import AdventOfCode.Input
-import AdventOfCode.Helpers
+import AdventOfCode.Input as Exported
+import AdventOfCode.Helpers as Exported
+import AdventOfCode.Parser as Exported

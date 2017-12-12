@@ -26,6 +26,7 @@ library
   build-depends:       base >=4.9 && <4.10
                      , attoparsec
                      , bytestring
+                     , containers
                      , utf8-string
                      , vector
   -- hs-source-dirs:      

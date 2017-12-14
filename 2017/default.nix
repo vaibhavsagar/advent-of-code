@@ -13,6 +13,7 @@ in import "${versions.ihaskell}/release.nix" {
     bytestring
     containers
     directory
+    fgl
     filepath
     lens
     memoize

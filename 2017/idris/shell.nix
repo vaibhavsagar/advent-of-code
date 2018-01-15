@@ -14,7 +14,7 @@ let
               binary = lib.dontCheck self.binary_0_8_5_1;
               cheapskate = self.cheapskate_0_1_1;
               idris = lib.overrideCabal (self.callHackage "idris" "1.2.0" {}) (drv: {
-                doCheck = false; # I don't want to install Node :(
+                doCheck = false;
                 librarySystemDepends = (drv.librarySystemDepends or []) ++ [pkgs.gmp];
                 preBuild = ''
                   export LD_LIBRARY_PATH="$PWD/dist/build:$LD_LIBRARY_PATH"

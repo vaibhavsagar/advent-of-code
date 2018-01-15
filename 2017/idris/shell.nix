@@ -20,9 +20,7 @@ let
                   export LD_LIBRARY_PATH="$PWD/dist/build:$LD_LIBRARY_PATH"
                 '';
               });
-              megaparsec = lib.doJailbreak (self.callHackage "megaparsec" "6.3.0" {});
-              parsers = lib.dontCheck super.parsers;
-              semigroupoids = lib.dontCheck super.semigroupoids;
+              megaparsec = self.callHackage "megaparsec" "6.3.0" {};
             };
           };
         in

@@ -1,0 +1,14 @@
+{
+  "ihaskell": {
+    "owner": "gibiansky",
+    "repo": "IHaskell",
+    "rev": "376d108d1f034f4e9067f8d9e9ef7ddad2cce191",
+    "sha256": "0359rn46xaspzh96sspjwklazk4qljdw2xxchlw2jmfa173miq6a"
+  },
+  "nixpkgs": {
+    "owner": "NixOS",
+    "repo": "nixpkgs-channels",
+    "rev": "db561c90ef34cc64287ee1c366ab9eec85b2af50",
+    "sha256": "06114dqsd401c6vi6iqzxvp1c1s6g1ganhx65ph2ng06q7chggh9"
+  }
+}

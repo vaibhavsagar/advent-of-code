@@ -26,5 +26,6 @@ in import "${versions.ihaskell}/release.nix" {
     unordered-containers
     utf8-string
     vector
-  ] ++ nixpkgs.lib.singleton (import ./lib);
+    (self.callCabal2nix "lib" ./lib {})
+  ];
 }

@@ -20,6 +20,7 @@ in import "${versions.ihaskell}/release.nix" {
     directory
     fgl
     filepath
+    ihaskell-charts
     lens
     memoize
     split

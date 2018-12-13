@@ -24,6 +24,7 @@ in import "${versions.ihaskell}/release.nix" {
     lens
     memoize
     split
+    timeit
     unordered-containers
     utf8-string
     vector

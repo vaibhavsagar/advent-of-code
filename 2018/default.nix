@@ -23,6 +23,7 @@ in import "${versions.ihaskell}/release.nix" {
     ihaskell-charts
     lens
     memoize
+    sbv
     split
     timeit
     unordered-containers
@@ -30,4 +31,5 @@ in import "${versions.ihaskell}/release.nix" {
     vector
     (self.callCabal2nix "lib" ./lib {})
   ];
+  systemPackages = self: [ self.z3 ];
 }

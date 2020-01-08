@@ -17,6 +17,7 @@ cabal-version:       >=1.10
 library
   exposed-modules:     AdventOfCode
                        AdventOfCode.Input
+                       AdventOfCode.Intcode
                        AdventOfCode.Helpers
                        AdventOfCode.Parser
                        AdventOfCode.Vector.Unboxed

@@ -12,7 +12,7 @@ let
   nixpkgs = import versions.nixpkgs {};
 in import "${versions.ihaskell}/release.nix" {
   inherit nixpkgs;
-  compiler = "ghc865";
+  compiler = "ghc884";
   packages = self: with self; [
     attoparsec
     bytestring

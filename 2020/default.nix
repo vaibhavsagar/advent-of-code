@@ -14,6 +14,7 @@ in import "${versions.ihaskell}/release.nix" {
   inherit nixpkgs;
   compiler = "ghc884";
   packages = self: with self; [
+    arithmoi
     attoparsec
     bytestring
     containers
